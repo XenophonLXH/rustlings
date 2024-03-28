@@ -7,11 +7,11 @@
 // Execute `rustlings hint errors3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 use std::num::ParseIntError;
 
-fn main() {
+fn main() -> Result<(), ParseIntError> { // total_cost returns a ParseIntError so we would have to
+                                         // return a ParsteIntError
     let mut tokens = 100;
     let pretend_user_input = "8";
 
@@ -23,6 +23,7 @@ fn main() {
         tokens -= cost;
         println!("You now have {} tokens.", tokens);
     }
+    Ok(()) // we need to do this because the function needs to implicitly return a result type ()
 }
 
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
